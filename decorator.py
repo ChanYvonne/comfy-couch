@@ -13,13 +13,12 @@ def getTime( func ):
         result = func(param)
         endTime = time.time()
         
-        print "Time: " + str(endTime - startTime) + " s\n"
+        print "Execution Time: " + str(endTime - startTime) + " s\n"
         return result
         
     return innerFunc
 
 def testFunc(x):
-    print "running test functIONE"
     time.sleep(1)
     return 5 * x
 
