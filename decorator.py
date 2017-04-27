@@ -1,12 +1,19 @@
 import time
 
+def getInfo(func):
+    def innerFunc(param):
+        print func.__name__ + ": " + "(" + str(param) + ")" + "\n"
+        return func(param)
+
+    return innerFunc
+
 def getTime( func ):
     def innerFunc(param):
         startTime = time.time()
         result = func(param)
         endTime = time.time()
         
-        print "Time: " + str(endTime - startTime) + " s"
+        print "Time: " + str(endTime - startTime) + " s\n"
         return result
         
     return innerFunc
@@ -18,4 +25,7 @@ def testFunc(x):
 
 timetest = getTime( testFunc )
 print timetest(5)
+
+infograb = getInfo(testFunc)
+print infograb(4)
     
