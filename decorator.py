@@ -3,8 +3,9 @@ import time
 def getInfo(func):
     def innerFunc(param):
         print func.__name__ + ": " + "(" + str(param) + ")" + "\n"
-        return func(param)
-
+        if param == 0: return 0
+        elif param == 1: return 1
+        else: return innerFunc(param-1)+innerFunc(param-2)
     return innerFunc
 
 def getTime( func ):
@@ -18,10 +19,10 @@ def getTime( func ):
         
     return innerFunc
 
-def fibonacci(n):
-    if n == 0: return 0
-    elif n == 1: return 1
-    else: return F(n-1)+F(n-2)
+def fibonacci(param):
+    if param == 0: return 0
+    elif param == 1: return 1
+    else: return fibonacci(param-1)+fibonacci(param-2)
 
 def testFunc(x):
     time.sleep(1)
@@ -33,5 +34,8 @@ timetest = getTime( testFunc )
 infograb = getInfo(testFunc)
 #print infograb(4)
 
-informationaoinwdoiwan = getTime(fibonacci)
-informationaoinwdoiwan(700)
+timeee= getTime(fibonacci)
+print timeee(30)
+
+inform = getInfo(fibonacci)
+inform(30)
