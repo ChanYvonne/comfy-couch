@@ -3,9 +3,7 @@ import time
 def getInfo(func):
     def innerFunc(param):
         print func.__name__ + ": " + "(" + str(param) + ")" + "\n"
-        if param == 0: return 0
-        elif param == 1: return 1
-        else: return innerFunc(param-1)+innerFunc(param-2)
+        return func(param)
     return innerFunc
 
 def getTime( func ):
